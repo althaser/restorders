@@ -25,7 +25,37 @@ html .login-wrap h2 {
   color: #34495e; }
 
 html .login-wrap .form {
-  padding-top: 20px; }
+    padding-top: 20px;
+/*margin: */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+/* #inputs input:focus {
+    background-color: #fff;
+    border-color: #e8c291; */
+/*    outline: none; */
+ /*   -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+    box-shadow: 0 0 0 1px #e8c291 inset; */ }
+
+#inputs input {
+    background: #ecf0f1 url(images/login-sprite.png) no-repeat;
+/*    padding: 15px 15px 15px 30px; */
+padding-left: 30px;
+/*    margin: 0 0 30px 0; */
+/*    width: 353px; /* 353 + 2 + 45 = 400 */
+/*    border: 1px solid #ccc; */
+/*    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff; */ }
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0; }
 
 html .login-wrap .form input[type="text"],
 html .login-wrap .form input[type="password"],
@@ -90,4 +120,7 @@ h2 {    border-radius: 5px 5px 0 0;
 	font-size: 14px;
 	padding: 8px;
 	text-align: center; }
+
+#username { background-position: 5px -2px !important; }
+#password { background-position: 5px -52px !important; }
 
