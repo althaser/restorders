@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 
 <html>
 <head>
@@ -12,7 +10,7 @@ session_start();
 <body>
 
 <div class="dashboard">
-  <h2>Dashboard</h2>
+  <h1>Dashboard</h1>
   <?php if($_SESSION["username"]) { ?>
   Welcome <?php echo $_SESSION["username"]; ?>.<br><br>
   <a href="logout.php" title="Logout">Logout</a>

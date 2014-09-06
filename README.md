@@ -3,5 +3,5 @@ restoders
 
 doing some orders
 
-## Screenshots
+## Screenshot
 ![Screenshot](https://raw.githubusercontent.com/althaser/restoders/master/images/restorders.png)
