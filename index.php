@@ -55,7 +55,7 @@ if (isset($_SESSION["id"])) { header("Location:dashboard.php"); }
   <form name="frmuser" method="post" action="">
     <div class="form">
       <fieldset id="inputs">
-        <input id="myusername" name="myusername" type="text" placeholder="Utilizador" autofocus required />
+        <input id="myusername" name="myusername" type="text" placeholder="Username" autofocus required />
         <input id="mypassword" name="mypassword" type="password" placeholder="Password" required />
         <button>Entrar</button>
       </fieldset>
