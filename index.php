@@ -8,32 +8,30 @@ $dbname = "restordersdb"; // database name
 $tbname = "users";        // table name
 
 session_start();
-$message="";
-if(count($_POST)>0) {
-  $con=mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+$message = "";
+if(count($_POST) > 0) {
+  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
 
-  // username and password sent from form 
-  $myusername=$_POST['myusername'];
-  $mypassword=$_POST['mypassword'];
+  // Username and Password sent from form 
+  $myusername = $_POST['myusername'];
+  $mypassword = $_POST['mypassword'];
 
-  // To protect MySQL injection (more detail about MySQL injection)
-//    $myusername = stripslashes($myusername);
-//    $mypassword = stripslashes($mypassword);
-//    $myusername = mysql_real_escape_string($myusername);
-//    $mypassword = mysql_real_escape_string($mypassword);
-    $sql = "SELECT * FROM $tbname WHERE username='$myusername' and password='$mypassword'";
-    $result = mysqli_query($con,$sql) or die("Failed on query:".mysqli_error());
+  // To protect MySQL injection
+  $myusername = mysqli_real_escape_string($con, $myusername);
+  $mypassword = mysqli_real_escape_string($con, $mypassword);
+  $sql = "SELECT * FROM $tbname WHERE username='$myusername' and password='$mypassword'";
+  $result = mysqli_query($con,$sql) or die("Failed on query: ".mysqli_error());
 /* alternative:
-    if ($result->num_rows == 1) { header("Location:dashboard.php"); }
+    if($result->num_rows == 1) { header("Location: dashboard.php"); }
     else { $message = "Invalid Username or Password!"; }
 */
-    $row  = mysqli_fetch_row($result);
-    if (is_array($row)) {
-      $_SESSION["id"] = $row[0];
-      $_SESSION["username"] = $row[1];
-    } else { $message = "Invalid Username or Password!"; }
+  $row = mysqli_fetch_row($result);
+  if(is_array($row)) {
+    $_SESSION["id"] = $row[0];
+    $_SESSION["username"] = $row[1];
+  } else { $message = "Invalid Username or Password!"; }
 }
-if (isset($_SESSION["id"])) { header("Location:dashboard.php"); }
+if(isset($_SESSION["id"])) { header("Location: dashboard.php"); }
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +58,7 @@ if (isset($_SESSION["id"])) { header("Location:dashboard.php"); }
         <button>Entrar</button>
       </fieldset>
     </div>
-    <div class="message"><?php if($message!="") { echo $message; } ?></div>
+    <div class="message"><?php if($message != "") { echo $message; } ?></div>
   </form>
 </div>
 
