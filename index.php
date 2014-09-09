@@ -1,11 +1,7 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
-$host = "localhost"; 	  // host
-$dbusername = "restorders"; // mysql username
-$dbpassword = "teste"; // mysql password
-$dbname = "restordersdb"; // database name
-$tbname = "users";        // table name
+require 'data.php';
 
 session_start();
 $message = "";
@@ -43,8 +39,7 @@ if(isset($_SESSION["id"])) { header("Location: dashboard.php"); }
   <title>Restorders</title>
 </head>
 
-<body>
-
+<body id="content">
 <h1 class="title">Restorders</h1>
 <p class="subtitle">doing some orders.</p>
 
@@ -55,7 +50,7 @@ if(isset($_SESSION["id"])) { header("Location: dashboard.php"); }
       <fieldset id="inputs">
         <input id="myusername" name="myusername" type="text" placeholder="Username" autofocus required />
         <input id="mypassword" name="mypassword" type="password" placeholder="Password" required />
-        <button>Entrar</button>
+        <button>Sign In</button>
       </fieldset>
     </div>
     <div class="message"><?php if($message != "") { echo $message; } ?></div>

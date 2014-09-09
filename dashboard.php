@@ -8,14 +8,14 @@
 </head>
 
 <body>
-
-<div class="dashboard">
-  <h1>Dashboard</h1>
-  <?php if($_SESSION["username"]) { ?>
-  Welcome <?php echo $_SESSION["username"]; ?>.<br><br>
-  <a href="logout.php" title="Logout">Logout</a>
-  <?php } ?>
-</div>
+  <div class="topbar">
+    <h1>Dashboard</h1>
+  </div>
+  <div class="main">
+    <?php if($_SESSION["username"]) { ?>
+      Welcome <?php echo $_SESSION["username"]; ?> ! <a href="logout.php" title="Logout">(Logout)</a>
+    <?php } ?>
+  </div>
 
 </body>
 </html>
