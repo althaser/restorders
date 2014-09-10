@@ -34,12 +34,12 @@ if(isset($_SESSION["id"])) { header("Location: dashboard.php"); }
 
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" media="screen" href="styled.css" />
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="styled.css" />
   <title>Restorders</title>
 </head>
 
-<body id="content">
+<body id="content1">
 <h1 class="title">Restorders</h1>
 <p class="subtitle">doing some orders.</p>
 

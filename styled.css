@@ -3,18 +3,17 @@
   margin: 0;
   padding: 0; }
 
-html { height: 100% }
+html { height: 100%; }
 
-#content {
-  background: #E0E0E0;
+#content1 {
   font-family: 'Helvetica Neue', Arial, Sans-Serif;
-  background-color: #BBBBBB;
   height: auto;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#EBEBEB));
+  background: url("images/beige.png") repeat top left;
+/*  background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#EBEBEB));
   background-image: -webkit-linear-gradient(top, #999999, #EBEBEB);
   background-image: -moz-linear-gradient(top, #999999, #EBEBEB);
   background-image: -ms-linear-gradient(top, #999999, #EBEBEB);
-  background-image: -o-linear-gradient(top, #999999, #EBEBEB); }
+  background-image: -o-linear-gradient(top, #999999, #EBEBEB); */}
 
 .login-wrap {
   position: relative;
@@ -94,10 +93,10 @@ fieldset {
 .login-wrap .form button:active { box-shadow: 1px 1px 7px #222; }
 
 .title { text-align: center;
-         color: #AADDFF; }
+         color: black; }
 
 .subtitle { text-align: center;
-            color: #fff; }
+            color: #474747; }
 
 h2 { border-radius: 5px 5px 0 0;
      color: #fff;
@@ -109,16 +108,19 @@ h2 { border-radius: 5px 5px 0 0;
 #mypassword { background-position: 5px -52px !important; }
 
 .message {
-color: #3399FF;
-font-weight: bold;
-text-align: center;
-width: 100%; }
+  color: #3399FF;
+  font-weight: bold;
+  text-align: center;
+  width: 100%; }
 
 .topbar {
   font-family: 'Helvetica Neue', Sans-Serif, Arial;
   text-align: center;
-  color: #ffffff;  
-  height: 6%
+  color: #ffffff;
+  font-size: 32px;
+  padding: 10px; 0px; 5px; 5px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.9);
   background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0.17, #1C71AD), color-stop(0.52, #0669BF), color-stop(1, #0E86F5), color-stop(1, #003461), color-stop(1, #0F72BD) );
   background-image: -webkit-linear-gradient(left top, #1C71AD 17%, #0669BF 52%, #0E86F5 100%, #003461 100%, #0F72BD 100%);
   background-image: -moz-linear-gradient(left top, #1C71AD 17%, #0669BF 52%, #0E86F5 100%, #003461 100%, #0F72BD 100%);
@@ -127,5 +129,10 @@ width: 100%; }
   background-image: linear-gradient(to left top, #1C71AD 17%, #0669BF 52%, #0E86F5 100%, #003461 100%, #0F72BD 100%); }
 
 .main { background: #ecf0f1;
-	padding: 10px 0 50px 50px }
+	padding: 10px 0px; 40px 10px;
+	color: #474747;
+	font-weight: bold;
+	font-size: 20px; }
+
+.welcome { margin-left: 90px; }
 
