@@ -3,6 +3,8 @@ Restorders
 
 doing some orders.
 
-## Screenshot
+## Screenshots
 ![Screenshot](https://raw.githubusercontent.com/althaser/restoders/master/images/ss-restorders.png)
+
+![Screenshot](https://raw.githubusercontent.com/althaser/restoders/master/images/ss-restorders2.png)
 
