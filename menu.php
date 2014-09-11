@@ -6,7 +6,7 @@
 <div class="container">
   <div class="content">
     <ul class="ca-menu">
-      <li><a href="#">
+      <li><a href="#drinks">
             <span class="ca-icon">X</span>
             <div class="ca-content">
               <h2 class="ca-main">Drinks</h2>
@@ -14,7 +14,7 @@
             </div>
           </a>
       </li>
-      <li><a href="#">
+      <li><a href="#starters">
             <span class="ca-icon">H</span>
             <div class="ca-content">
               <h2 class="ca-main">Starters</h2>
@@ -22,7 +22,7 @@
             </div>
           </a>
       </li>
-      <li><a href="#">
+      <li><a href="#pizzas">
             <span class="ca-icon">N</span>
             <div class="ca-content">
               <h2 class="ca-main">Pizzas</h2>
@@ -57,5 +57,4 @@
     </ul>
   </div>
 </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 

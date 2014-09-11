@@ -129,10 +129,21 @@ h2 { border-radius: 5px 5px 0 0;
   background-image: linear-gradient(to left top, #1C71AD 17%, #0669BF 52%, #0E86F5 100%, #003461 100%, #0F72BD 100%); }
 
 .main { background: #ecf0f1;
-	padding: 10px 0px; 40px 10px;
+	padding: 10px 30px; 40px 10px;
 	color: #474747;
 	font-weight: bold;
-	font-size: 20px; }
+	font-size: 20px;
+	width: 1000px;
+	float: left; }
 
-.welcome { margin-left: 90px; }
+.welcome { margin-left: 45px; }
+
+.tabs { float: left;
+	position: relative;
+	margin: -470px 0 0 290px;
+	width: 750px; }
+
+#shoplist { float: left;
+	    width: 300px;
+            margin: -470px 0 0 1000px; }
 
