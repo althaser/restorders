@@ -33,9 +33,9 @@
 	<a href="#" class="action-button shadow animate green">7Up</a><br><br>
 	<a href="#" class="action-button shadow animate blue">Water 33cl</a>
 	<a href="#" class="action-button shadow animate blue">Water 1l</a><br><br>
-	<a href="#" class="action-button shadow animate wine">Red 7,5dl</a>
-	<a href="#" class="action-button shadow animate wine">White 7,5dl</a>
-	<a href="#" class="action-button shadow animate wine">Rose 7,5dl</a><br><br>
+	<a href="#" class="action-button shadow animate wine">Red 7.5dl</a>
+	<a href="#" class="action-button shadow animate wine">White 7.5dl</a>
+	<a href="#" class="action-button shadow animate wine">Rose 7.5dl</a><br><br>
 	<a href="#" class="action-button shadow animate wine">Red</a>
 	<a href="#" class="action-button shadow animate wine">White</a>
 	<a href="#" class="action-button shadow animate wine">Rose</a><br><br>
