@@ -28,9 +28,9 @@
 	  border-bottom: 5px solid #D1B358;
 	  text-shadow: 0px -2px #D1B358; }
 
-.wine { background-color: #7A0000;
-	border-bottom: 5px solid #953333;
-	text-shadow: 0px -2px #953333; }
+.wine { background-color: #953333;
+	border-bottom: 5px solid #7A0000;
+	text-shadow: 0px -2px #7A0000; }
 
 .action-button:active {
 	transform: translate(0px,5px);

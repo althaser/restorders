@@ -25,21 +25,22 @@
     <?php include "menu.php"; } ?>
     <div class="tabs">
       <div id="drinks"><p>Drinks</p>
-	<a href="#" class="action-button shadow animate yellow">Beer 20ml</a>
-	<a href="#" class="action-button shadow animate yellow">Beer 50ml</a>
+	<a href="#" class="action-button shadow animate yellow">Beer 20cl</a>
+	<a href="#" class="action-button shadow animate yellow">Beer 50cl</a><br><br>
 	<a href="#" class="action-button shadow animate red">Coke</a>
-	<a href="#" class="action-button shadow animate red">Coke Zero</a>
-	<a href="#" class="action-button shadow animate blue">Water</a>
+	<a href="#" class="action-button shadow animate red">Coke Zero</a><br><br>
 	<a href="#" class="action-button shadow animate green">Fanta</a>
-	<a href="#" class="action-button shadow animate green">7Up</a>
-	<a href="#" class="action-button shadow animate wine">Red 75ml</a>
-	<a href="#" class="action-button shadow animate wine">White 75ml</a>
-	<a href="#" class="action-button shadow animate wine">Rose 75ml</a>
+	<a href="#" class="action-button shadow animate green">7Up</a><br><br>
+	<a href="#" class="action-button shadow animate blue">Water 33cl</a>
+	<a href="#" class="action-button shadow animate blue">Water 1l</a><br><br>
+	<a href="#" class="action-button shadow animate wine">Red 7,5dl</a>
+	<a href="#" class="action-button shadow animate wine">White 7,5dl</a>
+	<a href="#" class="action-button shadow animate wine">Rose 7,5dl</a><br><br>
 	<a href="#" class="action-button shadow animate wine">Red</a>
 	<a href="#" class="action-button shadow animate wine">White</a>
-	<a href="#" class="action-button shadow animate wine">Rose</a>
-	<a href="#" class="action-button shadow animate wine">Sangria 1.5L</a>
-	<a href="#" class="action-button shadow animate wine">Sangria 1L</a>
+	<a href="#" class="action-button shadow animate wine">Rose</a><br><br>
+	<a href="#" class="action-button shadow animate wine">Sangria 1.5l</a>
+	<a href="#" class="action-button shadow animate wine">Sangria 1l</a>
       </div>
       <div id="starters"><p>Starters</p>
         <a href="#" class="action-button shadow animate blue">Garlic Bread</a>
@@ -55,7 +56,7 @@
       </div>
       <div id="fourth">FOURTH</div>
     </div>
-    <div id="shoplist"><p>Shop list</p></div>
+    <div id="shopcart"><p>Shopping Cart</p></div>
   </div>
 
 </body>
