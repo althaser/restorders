@@ -1,6 +1,7 @@
 <?php
   session_start();
   if(!isset($_SESSION['id'])) { header("Location: index.php"); exit (0); }
+  require 'data.php';
 ?>
 
 <html>
@@ -25,7 +26,40 @@
     <?php include "menu.php"; } ?>
     <div class="tabs">
       <div id="drinks"><p>Drinks</p>
-	<a href="#" class="action-button shadow animate yellow">Beer 20cl</a>
+        <?php
+          //current URL of the Page. cart_update.php redirects back to this URL
+	  //$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+
+	  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+          $drinks = mysqli_query($con,"SELECT * FROM products WHERE category='drinks' ORDER BY id ASC") or die("Failed on query drinks: ".mysqli_error());
+          if ($drinks) {
+            while ($row = mysqli_fetch_object($drinks)) { 
+		//printf ("%s ", $row->productname);
+       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>'; }
+	  mysqli_free_result($drinks); }
+          mysqli_close($con);
+
+
+            //fetch drinks set as object and output HTML
+/*            while($row = $drinks->fetch_object()) {
+	      echo '<div class="product">'; 
+              echo '<form method="post" action="cart_update.php">';
+	      echo '<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>';
+              echo '<div class="product-content"><h3>'.$obj->product_name.'</h3>';
+              echo '<div class="product-desc">'.$obj->product_desc.'</div>';
+              echo '<div class="product-info">';
+	      echo 'Price '.$currency.$obj->price.' | ';
+              echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
+	      echo '<button class="add_to_cart">Add To Cart</button>';
+	      echo '</div></div>';
+              echo '<input type="hidden" name="product_code" value="'.$obj->product_code.'" />';
+              echo '<input type="hidden" name="type" value="add" />';
+	      echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
+              echo '</form>';
+              echo '</div>'; } }
+*/
+        ?>
+<!--	<a href="#" class="action-button shadow animate yellow">Beer 20cl</a>
 	<a href="#" class="action-button shadow animate yellow">Beer 50cl</a><br><br>
 	<a href="#" class="action-button shadow animate red">Coke</a>
 	<a href="#" class="action-button shadow animate red">Coke Zero</a><br><br>
@@ -40,13 +74,27 @@
 	<a href="#" class="action-button shadow animate wine">White</a>
 	<a href="#" class="action-button shadow animate wine">Rose</a><br><br>
 	<a href="#" class="action-button shadow animate wine">Sangria 1.5l</a>
-	<a href="#" class="action-button shadow animate wine">Sangria 1l</a>
+	<a href="#" class="action-button shadow animate wine">Sangria 1l</a>-->
       </div>
       <div id="starters"><p>Starters</p>
-        <a href="#" class="action-button shadow animate blue">Garlic Bread</a>
+	<?php
+          //current URL of the Page. cart_update.php redirects back to this URL
+	  //$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+
+	  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+          $starters = mysqli_query($con,"SELECT * FROM products WHERE category='starters' ORDER BY id ASC") or die("Failed on query starters: ".mysqli_error());
+          if ($starters) {
+            while ($row = mysqli_fetch_object($starters)) { 
+		//printf ("%s ", $row->productname);
+       	        echo '<a href="#" class="action-button shadow animate blue">'.$row->productname.'</a>'; }
+	  mysqli_free_result($starters); }
+          mysqli_close($con);
+	?>
+
+<!--    <a href="#" class="action-button shadow animate blue">Garlic Bread</a>
 	<a href="#" class="action-button shadow animate red">Garlic Pizza</a>
 	<a href="#" class="action-button shadow animate green">Soup</a>
-	<a href="#" class="action-button shadow animate yellow">Bread</a>
+	<a href="#" class="action-button shadow animate yellow">Bread</a>-->
       </div>
       <div id="pizzas"><p>Pizzas</p>
         <a href="#" class="action-button shadow animate blue">Margarita</a>

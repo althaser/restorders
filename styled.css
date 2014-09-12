@@ -130,7 +130,7 @@ h2 { border-radius: 5px 5px 0 0;
 
 .main { background: #ecf0f1;
 	padding: 10px 30px; 40px 10px;
-	color: #474747;
+	color: #474747
 	font-weight: bold;
 	font-size: 20px;
 	width: 1000px;
@@ -141,7 +141,7 @@ h2 { border-radius: 5px 5px 0 0;
 .tabs { float: left;
 	position: relative;
 	margin: -470px 0 0 290px;
-	width: 750px; }
+	width: 600px; }
 
 #shopcart { float: left;
 	    width: 300px;

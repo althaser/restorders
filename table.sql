@@ -10,3 +10,13 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO users (username, password)
   VALUES ('luis', 'teste');
 
+
+CREATE TABLE IF NOT EXISTS products (
+  id int NOT NULL AUTO_INCREMENT,
+  productname varchar(30) NOT NULL,
+  price float,
+  PRIMARY KEY (id));
+
+INSERT INTO products (productname, price)
+  VALUES ('coke', '1.50');
+
