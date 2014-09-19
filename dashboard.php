@@ -28,14 +28,17 @@
       <div id="drinks"><p>Drinks</p>
         <?php
           //current URL of the Page. cart_update.php redirects back to this URL
-	  //$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	  $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
 	  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
           $drinks = mysqli_query($con,"SELECT * FROM products WHERE category='drinks' ORDER BY id ASC") or die("Failed on query drinks: ".mysqli_error());
           if ($drinks) {
-            while ($row = mysqli_fetch_object($drinks)) { 
-		//printf ("%s ", $row->productname);
-       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>'; }
+            //fetch drinks set as object and output HTML
+            while ($row = mysqli_fetch_object($drinks)) {
+                echo '<form method="post" action="cartupdate.php">';
+//       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>';
+       	        echo '<button class="action-button shadow animate red">'.$row->productname.'</button>';
+                echo '</form>'; }
 	  mysqli_free_result($drinks); }
           mysqli_close($con);
 

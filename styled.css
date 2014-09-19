@@ -145,5 +145,6 @@ h2 { border-radius: 5px 5px 0 0;
 
 #shopcart { float: left;
 	    width: 300px;
+	    font-weight: bold;
             margin: -470px 0 0 1000px; }
 
