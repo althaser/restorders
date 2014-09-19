@@ -10,7 +10,8 @@
 	font-family: 'Pacifico', cursive;
 	font-size: 18px;
 	color: #ecf0f1;
-	text-decoration: none; }
+	text-decoration: none; 
+	border:0px; }
 
 .blue { background-color: #3498DB;
 	border-bottom: 5px solid #2980B9;

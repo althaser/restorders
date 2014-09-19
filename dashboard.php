@@ -36,8 +36,8 @@
             //fetch drinks set as object and output HTML
             while ($row = mysqli_fetch_object($drinks)) {
                 echo '<form method="post" action="cartupdate.php">';
-//       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>';
-       	        echo '<button class="action-button shadow animate red">'.$row->productname.'</button>';
+       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>';
+//       	        echo '<button class="action-button shadow animate red">'.$row->productname.'</button>';
                 echo '</form>'; }
 	  mysqli_free_result($drinks); }
           mysqli_close($con);
