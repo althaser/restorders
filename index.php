@@ -1,7 +1,7 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
-require 'data.php';
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL | E_STRICT);
+require 'config.php';
 
 session_start();
 $message = "";

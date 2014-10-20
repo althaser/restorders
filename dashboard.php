@@ -1,8 +1,19 @@
 <?php
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL | E_STRICT);
   session_start();
   if(!isset($_SESSION['id'])) { header("Location: index.php"); exit (0); }
-  require 'data.php';
+  require 'config.php';
+
+//
+  if(isset($_GET['page'])) {
+    $pages=array("products","cart");
+    if(in_array($_GET['page'], $pages)) { $_page=$_GET['page']; }
+    else { $_page="products"; }
+  }
+  else { $_page="products"; }
 ?>
+
 
 <html>
 <head>
@@ -24,27 +35,76 @@
     <?php if($_SESSION["username"]) { ?>
       <div class="welcome">Welcome <?php echo $_SESSION["username"]; ?><a href="logout.php" title="Logout"> (Logout)</a></div>
     <?php include "menu.php"; } ?>
+<!-- PRODUCTS -->
+<?php
+  if(isset($_GET['action']) && $_GET['action']=="add") {
+    $id=intval($_GET['id']);
+    if(isset($_SESSION['cart'][$id])) {
+      $_SESSION['cart'][$id]['quantity']++;
+    } else {
+      $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+      $sql_s="SELECT * FROM products WHERE id={$id}";
+      $query_s = mysqli_query($con,$sql_s) or die("Failed on query: ".mysqli_error());
+      if(mysqli_num_rows($query_s)!=0) {
+        $row_s=mysqli_fetch_array($query_s);
+        $_SESSION['cart'][$row_s['id']]=array("quantity"=>1,"price"=>$row_s['price']);
+      } else { $message="This product id it's invalid!"; }
+    }
+  }
+?>
+<!-- -->
     <div class="tabs">
+<?php
+  if(isset($message)) { echo "<h2>$message</h2>"; }
+//  echo print_r($_SESSION['cart']);
+?>
       <div id="drinks"><p>Drinks</p>
-        <?php
-          //current URL of the Page. cart_update.php redirects back to this URL
-	  $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
-	  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+        <?php
+//          //current URL of the Page. cartupdate.php redirects back to this URL
+//	  $currenturl = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+
+/*	  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
           $drinks = mysqli_query($con,"SELECT * FROM products WHERE category='drinks' ORDER BY id ASC") or die("Failed on query drinks: ".mysqli_error());
           if ($drinks) {
             //fetch drinks set as object and output HTML
             while ($row = mysqli_fetch_object($drinks)) {
                 echo '<form method="post" action="cartupdate.php">';
-       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>';
-//       	        echo '<button class="action-button shadow animate red">'.$row->productname.'</button>';
-                echo '</form>'; }
+//       	        echo '<a href="#" class="action-button shadow animate red">'.$row->productname.'</a>';
+       	        echo '<button class="action-button shadow animate red">'.$row->productname.'</button>';
+//                echo '<input type="hidden" name="productname" value="'.$row->productname.'" />';
+//                echo '<input type="hidden" name="type" value="add" />';
+//	        echo '<input type="hidden" name="return_url" value="'.$currenturl.'" />';
+               echo '</form>'; }
 	  mysqli_free_result($drinks); }
           mysqli_close($con);
+*/
 
 
-            //fetch drinks set as object and output HTML
-/*            while($row = $drinks->fetch_object()) {
+
+//<?php
+  $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+  $sql="SELECT * FROM products WHERE category='drinks' ORDER BY productname";
+  $query = mysqli_query($con,$sql) or die("Failed on query: ".mysqli_error());
+  while ($row=mysqli_fetch_array($query)) {
+?>
+  <a href="dashboard.php?page=products&action=add&id=<?php echo $row['id']; echo "#drinks" ?>" class="action-button shadow animate red"><?php echo $row['productname'] ?></a>
+
+
+
+
+<!--  <td><?php echo $row['price'] ?> €</td> -->
+<!--  <td><a href="dashboard.php?page=products&action=add&id=<?php echo $row['id']; echo "#drinks" ?>">addtocart</a></td><br> -->
+
+<?php } ?>
+
+
+
+
+
+
+<!--            //fetch drinks set as object and output HTML
+              while($row = $drinks->fetch_object()) {
 	      echo '<div class="product">'; 
               echo '<form method="post" action="cart_update.php">';
 	      echo '<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>';
@@ -60,8 +120,8 @@
 	      echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
               echo '</form>';
               echo '</div>'; } }
-*/
-        ?>
+
+        ?> -->
 <!--	<a href="#" class="action-button shadow animate yellow">Beer 20cl</a>
 	<a href="#" class="action-button shadow animate yellow">Beer 50cl</a><br><br>
 	<a href="#" class="action-button shadow animate red">Coke</a>
@@ -107,7 +167,30 @@
       </div>
       <div id="fourth">FOURTH</div>
     </div>
-    <div id="shopcart"><p>Shopping Cart</p></div>
+    <div id="shoppingcart">
+      <h1>Shopping Cart</h1>
+      <div id="lista">
+          <?php
+  	    if(isset($_SESSION['cart'])) {
+  	      $sql="SELECT * FROM products WHERE id IN (";
+	        foreach($_SESSION['cart'] as $id => $value) {
+		  $sql.=$id.",";
+		}
+	        $sql=substr($sql, 0, -1).") ORDER BY productname";
+//		echo $sql;
+                $con = mysqli_connect("$host", "$dbusername", "$dbpassword", "$dbname") or die ("Failed to connect mysql: ".mysqli_connect_error());
+		$query = mysqli_query($con,$sql) or die("Failed on query: ".mysqli_error());
+		while ($row=mysqli_fetch_array($query)) {
+		?>
+		<p><?php echo $row['productname'] ?> x <?php echo $_SESSION['cart'][$row['id']]['quantity']?></p>
+	  <?php } ?>
+  <hr />
+  <a href="dashboard.php?page=cart">Go to cart</a>
+            <?php
+ 	    } else { echo "<p>Your Cart is empty.<br>Please add some products.</p>"; }
+            ?>
+      </div>
+    </div>
   </div>
 
 </body>

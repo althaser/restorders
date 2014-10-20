@@ -1,4 +1,6 @@
 <?php
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL | E_STRICT);
   session_start();
   if(!isset($_SESSION['id'])) { header("Location: index.php"); exit (0); }
 ?>
